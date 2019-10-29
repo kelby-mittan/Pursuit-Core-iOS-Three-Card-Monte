@@ -24,11 +24,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var card2: UIButton!
     @IBOutlet weak var card3: UIButton!
     
+    var score = Int()
+    
     @IBAction func turnCardOver(_ sender: UIButton) {
-//        var ranInt = Int.random(in: 1...3)
+
         let cardButtonArr = ["threeCard", "kingCard", "threeCard"]
         let randomCard = cardButtonArr.randomElement()
-        var score = Int()
+        let randomNum = Int.random(in: 1...2)
+        
         if buttonFalse == true {
             switch sender.tag {
             case 0:
@@ -40,6 +43,14 @@ class ViewController: UIViewController {
                     } else if validRandomCard == "threeCard" {
                         winOrLose.text = "You lose, try again"
                         score = score + 0
+                        switch randomNum {
+                        case 1:
+                            card2.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        case 2:
+                            card3.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        default:
+                            card2.setBackgroundImage(UIImage(named: "cardBackRed"), for: .normal)
+                        }
                     }
                 }
                 
@@ -52,6 +63,14 @@ class ViewController: UIViewController {
                     } else if validRandomCard == "threeCard" {
                         winOrLose.text = "You lose, try again"
                         score = score + 0
+                        switch randomNum {
+                        case 1:
+                            card1.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        case 2:
+                            card3.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        default:
+                            card2.setBackgroundImage(UIImage(named: "cardBackRed"), for: .normal)
+                        }
                     }
                 }
             case 2:
@@ -63,6 +82,14 @@ class ViewController: UIViewController {
                     } else if validRandomCard == "threeCard" {
                         winOrLose.text = "You lose, try again"
                         score = score + 0
+                        switch randomNum {
+                        case 1:
+                            card2.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        case 2:
+                            card1.setBackgroundImage(UIImage(named: "kingCard"), for: .normal)
+                        default:
+                            card2.setBackgroundImage(UIImage(named: "cardBackRed"), for: .normal)
+                        }
                     }
                 }
             default:
